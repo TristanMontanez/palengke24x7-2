@@ -1,0 +1,31 @@
+ion-back-button {
+    font-size: 15px; 
+}
+
+ion-icon{
+    font-size: 25px; 
+}
+
+.product_name{
+    font-weight: 900;
+}
+
+.product_price{
+    font-weight: 900;
+}
+
+p{
+    font-size:12px;
+}
+
+ion-card{
+   box-shadow:none !important;
+   border-radius: 0% !important; 
+}
+
+.desc{
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

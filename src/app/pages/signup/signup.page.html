@@ -1,0 +1,55 @@
+<ion-content [fullscreen]="true" color="light">
+  <ion-card class="ion-no-margin" color="primary" style="height:30%;">
+    <br/>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-center">
+         <!-- <h4>Welcome to Palengke24x7</h4> -->
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <img src="assets/images/logo.png" style="width:100px; height:100px;"/>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+         <h4>Welcome to <br/>Palengke24x7</h4>
+         <p>All Day, All Night Market</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid> 
+  </ion-card>
+  <ion-card style="margin-top:-90px;">
+    <ion-card-header>
+      <ion-card-subtitle class="ion-text-center">Sign Up</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Username</ion-label>
+        <ion-input type="text" [(ngModel)]="newUser.username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email Address</ion-label>
+        <ion-input type="email" [(ngModel)]="newUser.email" (ionBlur)="checkEmail()"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" [(ngModel)]="newUser.password"></ion-input>
+      </ion-item>
+      <br/>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="signUp()">Sign Up</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" color="warning" (click)="back()">Back</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  
+  </ion-content>
+  

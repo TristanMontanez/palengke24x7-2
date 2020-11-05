@@ -1,0 +1,7 @@
+{
+  "name": "palengke24x7",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

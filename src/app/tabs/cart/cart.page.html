@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content [hidden]="!showEmptyCartMessage" class="ion-text-center">
+     Your Shopping Cart is Empty!
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <ion-item *ngFor="let item of items; let i = index">
+      <ion-avatar slot="start">
+        <img [src]="item.product.images[0].thumbnail">
+      </ion-avatar>
+      <ion-label>
+        <ion-button class="ion-float-right" (click)="removeFromCart(item, i)">
+          <ion-icon name="close-circle"></ion-icon>
+        </ion-button>
+        <h2 style="font-weight: 900;">{{item.product.name}}</h2>
+        <h3>{{ item.qty * item.product.price }}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2>
+          Sub Total
+        </ion-col>
+        <ion-col col-4>
+        </ion-col>
+        <ion-col col-3>
+        </ion-col>
+        <ion-col col-3 style="text-align:right">
+          <b>{{total}}</b>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-2>
+          Total
+        </ion-col>
+        <ion-col col-4>
+        </ion-col>
+        <ion-col col-3>
+        </ion-col>
+        <ion-col col-3 style="text-align:right">
+          <b>{{total}}</b>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" (click)="back()">
+            <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+              Back
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" color="warning" (click)="checkout()">
+            <ion-icon slot="start" name="shield-checkmark-outline"></ion-icon>
+              Proceed to Checkout
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+  

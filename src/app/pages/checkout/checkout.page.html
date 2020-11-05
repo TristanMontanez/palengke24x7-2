@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" (click)="back()">
+            <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title class="ion-text-center">Checkout</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-grid>
+        <ion-item-divider color="warning">Personal Details</ion-item-divider>
+        <ion-list>
+            <ion-item>
+                <ion-label position="floating">First Name</ion-label>
+                <ion-input type="text" [(ngModel)]="newOrder.billing_address.first_name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Last Name</ion-label>
+                <ion-input type="text" [(ngModel)]="newOrder.billing_address.last_name"></ion-input>
+            </ion-item>
+            <ion-item-divider color="warning">Billing Details</ion-item-divider>
+            <ion-item>
+                <ion-label position="floating">Country</ion-label>
+                <ion-select [(ngModel)]="newOrder.billing_address.country">
+                    <ion-select-option value="Philippines" selected="true">Philippines</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Postal Code / Zip</ion-label>
+                <ion-input type="text" pattern="[0-9]*" maxlength="4" [(ngModel)]="newOrder.billing_address.postcode"></ion-input>
+            </ion-item>
+            <ion-item-divider color="warning">Payment Method</ion-item-divider>
+            <ion-item>
+                <ion-label position="floating">Payment Method</ion-label>
+                <ion-select [(ngModel)]="newOrder.billing_address.paymentmethod">
+                    <ion-select-option>Paypal</ion-select-option>
+                    <ion-select-option>Paymaya</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-button type="text" (click)="checkout_submit()">Check Out</ion-button>
+            </ion-item>
+
+
+            
+        </ion-list>
+    </ion-grid>
+</ion-content>
+
+<!--
+<ion-card>
+    <ion-card-content>
+        
+
+   
+    </ion-card-content>
+</ion-card>
+
+-->

@@ -1,0 +1,26 @@
+<ion-app>
+  <ion-content [fullscreen]="true" color="light">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-buttons slot="start" (click)="back()">
+          <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title class="ion-text-center">{{data[0].categories[0].name}}</ion-title>
+      </ion-toolbar>
+      <div>
+        <ion-card-header>
+          <ion-card-subtitle>{{data[0].categories[0].name}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-row class="ion-margin" style="margin-top:-10px;">
+          <ion-col size="4" size-md *ngFor="let data of data" (click)="openSingleProductPage(data.id)">
+            <img [src]="data.images[0].src" style="height:100px;width:100%;"/>
+            <ion-list lines="none" style="margin-top:-10px;">
+              <ion-item><ion-label style="font-size:12px;">{{data.name}}</ion-label></ion-item>
+              <ion-item style="margin-top:-13px;"><ion-label class="price-label">₱{{data.price}}</ion-label></ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-header>
+  </ion-content>
+</ion-app>

@@ -1,0 +1,28 @@
+<ion-content [fullscreen]="true" color="light">
+  <ion-card class="ion-no-margin" color="primary">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <img src="assets/images/logo.png" style="width:80px; height:80px;"/>
+          <h2 style="margin-top:-10px;">Palengke24x7</h2>
+          <p style="color:#fff;margin-top:-10px;">All Day, <br/>All Night Market</p>
+        </ion-col>
+        <ion-searchbar placeholder="Search Products.." color="light"></ion-searchbar>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <br/>
+  <div>
+    <ion-card-header>
+      <ion-card-subtitle>Mga Produkto</ion-card-subtitle>
+    </ion-card-header>
+    <ion-row class="ion-margin" style="margin-top:-10px;">
+      <ion-col size="6" size-md *ngFor="let products of products"(click)="openSingleProductPage(products.id)">
+        <ion-item>
+          <p>{{products.name}}</p>
+        </ion-item>
+        <img [src]="products.image.src" style="height:100px;width:100%;"/>
+      </ion-col>
+    </ion-row>
+  </div>
+  </ion-content>
