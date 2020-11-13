@@ -80,10 +80,9 @@ export class CheckoutPage implements OnInit {
         }
 
         console.log(this.newOrder.billing_address);
-
+/*
         return new Promise(resolve => {
-            this.http
-                .post(
+            this.http.post(
                     `${this.url}/wp-json/wc/v3/orders/?consumer_key=${
                     this.api.consumerKey
                     }&consumer_secret=${this.api.consumerSecret}`,
@@ -93,9 +92,9 @@ export class CheckoutPage implements OnInit {
                 .subscribe(data => {
                     resolve(data);
                 });
-        });
+        });*/
     }
-   
+  
     back(){
         this.modalCtrl.dismiss();
     }
