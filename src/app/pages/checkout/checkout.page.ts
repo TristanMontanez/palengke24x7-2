@@ -1,15 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, LoadingController } from '@ionic/angular';
 import { PaymentGatewaysService } from '../../services/payment-gateways.service';
-/*import { WooCommerceRestApi } from "@woocommerce/woocommerce-rest-api";
-
-const WooCommerce = new WooCommerceRestApi({
-    url: 'http://palengke24x7.com',
-    consumerKey: 'consumer_key',
-    consumerSecret: 'consumer_secret', 
-    version: 'wc/v3' // WooCommerce WP REST API version
-}); 
-*/
+import  WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 
 @Component({
   selector: 'app-checkout',
@@ -28,7 +20,7 @@ export class CheckoutPage implements OnInit {
         this.newOrder.billing_address = {};
         this.newOrder.shipping_address = {};
         this.newOrder.shipping_same = false;
-        this.line_items = [
+      /*  this.line_items = [
             {
                 product_id: 0,
                 quantity: 1
@@ -37,7 +29,7 @@ export class CheckoutPage implements OnInit {
                 product_id: 1,
                 quantity: 1
             }
-        ]
+        ]*/
 
     }
 
@@ -58,6 +50,14 @@ export class CheckoutPage implements OnInit {
 
     checkout_submit() {
         console.log("checkout test");
+    
+        const api = new WooCommerceRestApi({
+            url: 'http://palengke24x7.com',
+            consumerKey: 'ck_0ecf3e9078e50ff7043cbb49423ed45269bcaad3',
+            consumerSecret: 'cs_d80111293fa10ab07635464f3dbc9a4041220caf',
+            version: 'wc/v3' // WooCommerce WP REST API version
+        }); 
+
 
         const { first_name = "",
                 last_name = "",
@@ -80,14 +80,20 @@ export class CheckoutPage implements OnInit {
         }
 
         console.log(this.newOrder.billing_address);
-/*        WooCommerceRestApi.get("")
-            .then((response) => {
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.log(error.response.data);
-            });
-*/
+
+        return new Promise(resolve => {
+            this.http
+                .post(
+                    `${this.url}/wp-json/wc/v3/orders/?consumer_key=${
+                    this.api.consumerKey
+                    }&consumer_secret=${this.api.consumerSecret}`,
+                    this.newOrder,
+                    { 'Content-Type': 'application/x-www-form-urlencoded' }
+                )
+                .subscribe(data => {
+                    resolve(data);
+                });
+        });
     }
    
     back(){
