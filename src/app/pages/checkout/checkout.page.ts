@@ -14,7 +14,7 @@ import  WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 export class CheckoutPage implements OnInit {
 
     api = new WooCommerceRestApi({
-        url: 'https://palengke24x7.com',
+        url: 'https://karinderya24x7.com',
         consumerKey: 'ck_0ecf3e9078e50ff7043cbb49423ed45269bcaad3',
         consumerSecret: 'cs_d80111293fa10ab07635464f3dbc9a4041220caf',
         version: 'wc/v3' // WooCommerce WP REST API version
@@ -101,19 +101,22 @@ export class CheckoutPage implements OnInit {
             console.log("invalid postcode");
             return;
         }
-        console.log("payment gateway")
+        console.log("success")
         console.log(this.newOrder.billing_address);
-//        this.getPaymentGateways();
-
+        this.api.post(`$/wp-json/wc/v3/orders/?consumer_key=$this.api.}&consumer_secret=${this.api.consumerSecret}`, this.newOrder.billing_address)
+            .then((response) => {
+                console.log(response.newOrder);
+            })
+            .catch((error) => {
+                console.log(error.response.data);
+            });
+/*
         return new Promise(resolve => {
-            this.api.post(
-                    `$/wp-json/wc/v3/orders/?consumer_key=${
-                    this.api.consumerKey
-                    }&consumer_secret=${this.api.consumerSecret}`,
-                    this.newOrder,
-                    { 'Content-Type': 'application/x-www-form-urlencoded' }
-                )
+            this.api.http.post( `$/wp-json/wc/v3/orders/?consumer_key=$this.api.}&consumer_secret=${this.api.consumerSecret}`,
+                                this.newOrder,
+                                { 'Content-Type': 'application/x-www-form-urlencoded' })
         });
+*/
     }
   
     back(){

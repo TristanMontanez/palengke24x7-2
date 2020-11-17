@@ -10,12 +10,13 @@ import { SingleProductPage } from '../../modal/single-product/single-product.pag
 })
 export class ProductsPage implements OnInit {
 
-  palengke: string = "karne";
-  karne: any;
-  isda: any;
-  prutas: any;
-  gulay: any;
-  driedfish:any;
+  karinderya: string = "karne";
+  ulam: any;
+  meryenda: any;
+  drinks: any;
+  breakfast: any;
+  panghimagas:any;
+    gulay: any;
   other:any;
   items: any;
   singleProductDetails:any;

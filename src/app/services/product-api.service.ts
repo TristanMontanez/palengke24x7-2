@@ -9,7 +9,7 @@ import {  throwError } from 'rxjs';
 
 export class ProductAPIService {
 
-  url = 'https://www.palengke24x7.com/';
+  url = 'https://www.karinderya24x7.com/';
   consumerKey = 'ck_224659887db29e0a8f174760705289589aa6ca29';
   consumerSecret = 'cs_17fbd677bb7377b60ccdc0fe03d32401abfa8866';
 
@@ -44,7 +44,7 @@ export class ProductAPIService {
     )
   }
 
-  getKarneProducts(){
+  getUlamProducts(){
     return this.http.get(`${this.url}wp-json/wc/v3/products?consumer_key=${
       this.consumerKey
     }&consumer_secret=${this.consumerSecret}&category=75&hide_empty=true`)
@@ -54,7 +54,7 @@ export class ProductAPIService {
     )
   }
 
-  getIsdaProducts(){
+  getMeryendaProducts(){
     return this.http.get(`${this.url}wp-json/wc/v3/products?consumer_key=${
       this.consumerKey
     }&consumer_secret=${this.consumerSecret}&category=76&hide_empty=true`)
@@ -64,7 +64,7 @@ export class ProductAPIService {
     )
   }
 
-  getGulayProducts(){
+  getDrinksProducts(){
     return this.http.get(`${this.url}wp-json/wc/v3/products?consumer_key=${
       this.consumerKey
     }&consumer_secret=${this.consumerSecret}&category=73&hide_empty=true`)
@@ -74,7 +74,7 @@ export class ProductAPIService {
     )
   }
 
-  getPrutasProducts(){
+  getBreakfastProducts(){
     return this.http.get(`${this.url}wp-json/wc/v3/products?consumer_key=${
       this.consumerKey
     }&consumer_secret=${this.consumerSecret}&category=74&hide_empty=true`)
@@ -84,7 +84,7 @@ export class ProductAPIService {
     )
   }
 
-  getDriedFishProducts(){
+  getPanghimagasProducts(){
     return this.http.get(`${this.url}wp-json/wc/v3/products?consumer_key=${
       this.consumerKey
     }&consumer_secret=${this.consumerSecret}&category=100&hide_empty=true`)
@@ -93,6 +93,16 @@ export class ProductAPIService {
         catchError(this.handleError)
     )
   }
+
+   getGulayProducts() {
+        return this.http.get(`${this.url}wp-json/wc/v3/products?consumer_key=${
+            this.consumerKey
+            }&consumer_secret=${this.consumerSecret}&category=100&hide_empty=true`)
+            .pipe(
+                retry(2),
+                catchError(this.handleError)
+            )
+    }
 
   getOtherProducts(){
     return this.http.get(`${this.url}wp-json/wc/v3/products?consumer_key=${
