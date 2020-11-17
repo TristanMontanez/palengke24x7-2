@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, LoadingController } from '@ionic/angular';
 import { PaymentGatewaysService } from '../../services/payment-gateways.service';
+import { HttpClientModule } from '@angular/common/http';
 import  WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 
 @Component({
@@ -12,6 +13,13 @@ import  WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 
 export class CheckoutPage implements OnInit {
 
+    api = new WooCommerceRestApi({
+        url: 'https://palengke24x7.com',
+        consumerKey: 'ck_0ecf3e9078e50ff7043cbb49423ed45269bcaad3',
+        consumerSecret: 'cs_d80111293fa10ab07635464f3dbc9a4041220caf',
+        version: 'wc/v3' // WooCommerce WP REST API version
+    }); 
+
     paymentGateways: any;
     newOrder: any;
 
@@ -20,43 +28,58 @@ export class CheckoutPage implements OnInit {
         this.newOrder.billing_address = {};
         this.newOrder.shipping_address = {};
         this.newOrder.shipping_same = false;
-      /*  this.line_items = [
-            {
-                product_id: 0,
-                quantity: 1
-            },
-            {
-                product_id: 1,
-                quantity: 1
-            }
-        ]*/
 
     }
 
     ngOnInit() {
     }
-  
-  // async getPaymentGateways(){
-  //   const loading = await this.loadingCtrl.create({
-  //     message: 'Please wait...',
-  //   });
+  /*
+    async getPaymentGateways() {
+        return new Promise(resolve => {
+            this.api.get(
+                    `${this.api.url}/wp-json/wc/v3/payment_gateways?consumer_key=${
+                    this.api.consumerKey
+                    }&consumer_secret=${this.api.consumerSecret}`
+                )
+                .subscribe(data => {
+                    resolve(data);
+                });
+        });
+    }
+    */
+    /*
+    async createOrder(input) {
+        const orderObj = {};
+        orderObj['payment_method'] = input.paymentmethod;
+        orderObj['customer_id'] = 1;                                            //customer id
+        orderObj['billing'] = input.billing_address;
+//        orderObj['shipping'] = this.address;
+//        orderObj['line_items'] = this.line_items;
 
-  //   await loading.present();
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/x-www-form-urlencoded'
+        });
 
-  //   this.paymentGateway.getPaymentGateways().subscribe((response) => {
-  //     this.paymentGateways = response;
-  //     this.loadingCtrl.dismiss();
-  //   });
+        const order = this.JSON_to_URLEncoded(obj);
+
+        return new Promise(resolve => {
+            this.http
+                .post(
+                    `${this.url}/wp-json/wc/v3/orders/?consumer_key=${
+                    this.consumerKey
+                    }&consumer_secret=${this.consumerSecret}`,
+                    order,
+                    { 'Content-Type': 'application/x-www-form-urlencoded' }
+                )
+                .subscribe(data => {
+                    resolve(data);
+                });
+        });
+    }
+    */
 
     checkout_submit() {
         console.log("checkout test");
-    
-        const api = new WooCommerceRestApi({
-            url: 'http://palengke24x7.com',
-            consumerKey: 'ck_0ecf3e9078e50ff7043cbb49423ed45269bcaad3',
-            consumerSecret: 'cs_d80111293fa10ab07635464f3dbc9a4041220caf',
-            version: 'wc/v3' // WooCommerce WP REST API version
-        }); 
 
 
         const { first_name = "",
@@ -78,21 +101,19 @@ export class CheckoutPage implements OnInit {
             console.log("invalid postcode");
             return;
         }
-
+        console.log("payment gateway")
         console.log(this.newOrder.billing_address);
-/*
+//        this.getPaymentGateways();
+
         return new Promise(resolve => {
-            this.http.post(
-                    `${this.url}/wp-json/wc/v3/orders/?consumer_key=${
+            this.api.post(
+                    `$/wp-json/wc/v3/orders/?consumer_key=${
                     this.api.consumerKey
                     }&consumer_secret=${this.api.consumerSecret}`,
                     this.newOrder,
                     { 'Content-Type': 'application/x-www-form-urlencoded' }
                 )
-                .subscribe(data => {
-                    resolve(data);
-                });
-        });*/
+        });
     }
   
     back(){
