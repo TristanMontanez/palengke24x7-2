@@ -16,7 +16,7 @@ export class ProductsPage implements OnInit {
   drinks: any;
   breakfast: any;
   panghimagas:any;
-    gulay: any;
+  gulay: any;
   other:any;
   items: any;
   singleProductDetails:any;
@@ -41,21 +41,26 @@ export class ProductsPage implements OnInit {
 
     await loading.present();
 
-    this.productAPIService.getKarneProducts
+    this.productAPIService.getMeryendaProducts
     ().subscribe((response) => {
-      this.karne = response;
+      this.meryenda = response;
     
     });
 
-    this.productAPIService.getIsdaProducts
+    this.productAPIService.getDrinksProducts
     ().subscribe((response) => {
-      this.isda = response;
+      this.drinks = response;
     });
 
     
-    this.productAPIService.getPrutasProducts
+    this.productAPIService.getBreakfastProducts
     ().subscribe((response) => {
-      this.prutas = response;
+      this.breakfast = response;
+    });
+
+    this.productAPIService.getPanghimagasProducts
+    ().subscribe((response) => {
+      this.panghimagas = response;
     });
 
     this.productAPIService.getGulayProducts
@@ -64,10 +69,7 @@ export class ProductsPage implements OnInit {
      
     });
 
-    this.productAPIService.getDriedFishProducts
-    ().subscribe((response) => {
-      this.driedfish = response;
-    });
+    
 
     this.productAPIService.getOtherProducts
     ().subscribe((response) => {

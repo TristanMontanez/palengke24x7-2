@@ -10,7 +10,7 @@ import {  throwError } from 'rxjs';
 
 export class SignUpService {
 
-  url = 'https://www.palengke24x7.com/';
+  url = 'https://www.karinderya24x7.com/';
   consumerKey = 'ck_224659887db29e0a8f174760705289589aa6ca29';
   consumerSecret = 'cs_17fbd677bb7377b60ccdc0fe03d32401abfa8866';
 

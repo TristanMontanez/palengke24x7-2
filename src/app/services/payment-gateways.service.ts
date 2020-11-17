@@ -9,7 +9,7 @@ import {  throwError } from 'rxjs';
 })
 export class PaymentGatewaysService {
 
-  url = 'https://www.palengke24x7.com/';
+  url = 'https://www.karinderya24x7.com/';
   consumerKey = 'ck_0ecf3e9078e50ff7043cbb49423ed45269bcaad3';
   consumerSecret = 'cs_d80111293fa10ab07635464f3dbc9a4041220caf';
   paymentGateway = ["paypal","rits_paymaya"];
