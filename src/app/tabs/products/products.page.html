@@ -13,22 +13,22 @@
     <ion-toolbar no-border-top>
       <ion-segment scrollable [(ngModel)]="palengke">
         <ion-segment-button value="Ulam">
-          Karne
+          Ulam
         </ion-segment-button>
         <ion-segment-button value="Meryenda">
-          Isda
+          Meryenda
         </ion-segment-button>
         <ion-segment-button value="Drinks">
-          Gulay
+          Drinks
         </ion-segment-button>
         <ion-segment-button value="Breakfast">
-          Prutas
+          Breakfast
         </ion-segment-button>
         <ion-segment-button value="Panghimagas">
-          Dried Fish
+          Panghimagas
         </ion-segment-button>
-        <ion-segment-button value="ibapa">
-          Iba pa..
+        <ion-segment-button value="Gulay">
+          Gulay
         </ion-segment-button>
 
       </ion-segment>
@@ -37,10 +37,10 @@
     
   </ion-toolbar>
   <div [ngSwitch]="palengke">
-    <div *ngSwitchCase="'ulam'">
+    <div *ngSwitchCase="'Ulam'">
       <div>
         <ion-card-header>
-          <ion-card-subtitle>Ulam</ion-card-subtitle>
+          <ion-card-subtitle>Manok, Baboy, Baka at iba pa..</ion-card-subtitle>
         </ion-card-header>
         <ion-row class="ion-margin" style="margin-top:-10px;">
           <ion-col size="4" size-md *ngFor="let karne of karne">
@@ -56,7 +56,7 @@
     <div *ngSwitchCase="'Meryenda'">
       <div>
         <ion-card-header>
-          <ion-card-subtitle>Meryenda</ion-card-subtitle>
+          <ion-card-subtitle>Puto, Banana Cue, Kamote Cue..</ion-card-subtitle>
         </ion-card-header>
         <ion-row class="ion-margin" style="margin-top:-10px;">
           <ion-col size="4" size-md *ngFor="let isda of isda" (click)="openSingleProductPage(isda.id)">
@@ -72,7 +72,7 @@
     <div *ngSwitchCase="'Drinks'">
       <div>
         <ion-card-header>
-          <ion-card-subtitle>Drinks</ion-card-subtitle>
+          <ion-card-subtitle>Fruit Juice, Milk Tea, Shakes..</ion-card-subtitle>
         </ion-card-header>
         <ion-row class="ion-margin" style="margin-top:-10px;">
           <ion-col size="4" size-md *ngFor="let gulay of gulay" (click)="openSingleProductPage(gulay.id)">
@@ -88,7 +88,7 @@
     <div *ngSwitchCase="'Breakfast'">
       <div>
         <ion-card-header>
-          <ion-card-subtitle>Breakfast</ion-card-subtitle>
+          <ion-card-subtitle>Silog at Tinapay</ion-card-subtitle>
         </ion-card-header>
         <ion-row class="ion-margin" style="margin-top:-10px;">
           <ion-col size="4" size-md *ngFor="let prutas of prutas" (click)="openSingleProductPage(prutas.id)">
@@ -104,7 +104,7 @@
     <div *ngSwitchCase="'Panghimagas'">
       <div>
         <ion-card-header>
-          <ion-card-subtitle>Panghimagas</ion-card-subtitle>
+          <ion-card-subtitle>Biko, Ube at iba pa..</ion-card-subtitle>
         </ion-card-header>
         <ion-row class="ion-margin" style="margin-top:-10px;">
           <ion-col size="4" size-md *ngFor="let driedfish of driedfish" (click)="openSingleProductPage(driedfish.id)">
@@ -117,10 +117,10 @@
         </ion-row>
       </div>
     </div>
-    <div *ngSwitchCase="'ibapa'">
+    <div *ngSwitchCase="'Gulay'">
       <div>
         <ion-card-header>
-          <ion-card-subtitle>Itlog, Bigas at Iba Pa..</ion-card-subtitle>
+          <ion-card-subtitle>Chopsuey at mga ginataan sa gulay</ion-card-subtitle>
         </ion-card-header>
         <ion-row class="ion-margin" style="margin-top:-10px;">
           <ion-col size="4" size-md *ngFor="let other of other" (click)="openSingleProductPage(other.id)">
