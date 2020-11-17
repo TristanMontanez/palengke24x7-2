@@ -14,8 +14,8 @@ import  WooCommerceRestApi from "@woocommerce/woocommerce-rest-api";
 export class CheckoutPage implements OnInit {
 
     api = new WooCommerceRestApi({
-        url: 'https://karinderya24x7.com',
-        consumerKey: 'ck_0ecf3e9078e50ff7043cbb49423ed45269bcaad3',
+        url: 'https://karinderya24x7.com',   
+        consumerKey : 'ck_0ecf3e9078e50ff7043cbb49423ed45269bcaad3',
         consumerSecret: 'cs_d80111293fa10ab07635464f3dbc9a4041220caf',
         version: 'wc/v3' // WooCommerce WP REST API version
     }); 
